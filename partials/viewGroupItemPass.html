@@ -1,0 +1,134 @@
+<form class="formLog" name="form" class="form-horizontal" novalidate ng-controller="GroupCtrl">
+<div class="row ">
+    <div class="col-sm-12">
+        <h2 class="main-title">
+            View </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="type">
+                    Type:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <label>{{ngDialogData.field_type}}</label>
+                    <!--select ng-model="viewitem.type" ng-change="typeSelect(viewitem.type)">
+                        <option value="number">Number</option>
+                        <option value="date">Date/Time</option>
+                        <option value="shorttext">Short Text</option>
+                        <option value="blob">Long-text/Blob</option>
+                        <option value="image">Image</option>
+                        <option value="group">Group</option>
+                        <option value="individual">Individual</option>
+                    </select-->
+                </span>
+            </div>
+        </div>
+        <div class="row space" ng-show="label_name">
+            <div class="col-sm-4">
+                <label for="labelname">
+                    Label-Name:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <input type="text" class="form-control" placeholder="Label" name="labelname" ng-model="ngDialogData.field_type"
+                        disabled/>
+                </span>
+            </div>
+        </div>
+        <div class="row space" ng-show="ck_div">
+            <div class="modal-body">
+                <textarea class="ck-editor" ng-model="additem.ck_data"></textarea>
+            </div>
+           
+        </div>
+        <div ng-show="label_value">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="fvalue">
+                        Label-Value:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="value" name="fvalue" ng-model="ngDialogData.field_value"
+                             disabled/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div ng-show="date_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="date_time">
+                        Date:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="date" ng-model="additem.date_time" class="form-control" placeholder="Date"
+                            name="date_time" required="true">  
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row space" ng-show="image">
+            <div class="col-sm-4">
+                <label for="group_img">
+                    Image:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    
+                    <label>File</label>
+                    
+                    </div>
+                </span>
+            </div>
+            
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="Passkey">
+                        Pass Key:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" ng-model="viewpassitem.key" name="viewpassitem.key" class="form-control" 
+                        placeholder="Passkey Or Password"
+                          name="key" required="true" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+            
+        
+        </div>
+        
+        <div class="space">
+        </div>
+        <div class="clearfix">
+            <div class="row space">
+                <div class="col-sm-6 ">
+                <input type="hidden"  name="viewpassitem.field_id" ng-model="viewpassitem.field_id" 
+                ng-init="viewpassitem.field_id = ngDialogData.field_id" />
+                </div>
+                <div class="col-sm-4 btn-set  text-right">
+                    <img class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="checkpasswordview(viewpassitem)">
+                        Show
+                    </button>
+                    <button type="button" class="width-35 pull-right btn btn-sm btn-primary" ng-click="closeThisDialog()">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+
+</div>
+</form>

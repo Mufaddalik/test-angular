@@ -1,0 +1,155 @@
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-repeat="item in group_details" class="col-md-9">
+                <form class="formLog" name="form1" ng-controller="GroupCtrl" class="form-horizontal"
+                ng-submit="UpdateGroupProfile(item)" role="form">
+                <div class="row space">
+                    <div class="col-sm-4">
+                        <img ng-src="{{item.image}}" style="width: 192px; height: 154px;" class=""/>
+                        <h2>
+                            Group Details</h2>
+                        <h3>
+                            <strong>{{item.name}}</strong></h3>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Group Name :</strong></div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="item.group_name" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Group Title : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="item.group_title" />
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Group Default Pass Key: </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Default Passkey" ng-model="item.pass_key" />
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="block input-icon input-icon-right">
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="generatePassKey()">Generate Random Passkey</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Group Access: </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="checkbox"  ng-model="item.access" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Date Created: </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">{{item.date_created}}</span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-3">
+                        <input type="hidden"  name="item.group_id" ng-model="item.group_id" ng-init="item.group_id" />
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Update
+                        </button>
+                      
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="Reset()">
+                            Reset
+                        </button>
+                    </div>
+                    <div class="col-sm-1>
+                        <a href="javascript:void(0);" ng-click="addItem()">Add Item </a>   
+                    </div>
+                </div>
+                <div class="row space">
+                </div>
+                </form>
+                <div class="col-md-9"><!-- for field list -->
+                <div class="row space" ng-repeat="items in group_fields">
+                    <div class="col-sm-2">
+                        <strong>{{items.field_name}} : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="items.field_value" disabled="disabled" />
+                        </span>
+                    </div>
+                    <div class="col-sm-1">
+                        <a href="javascript:void(0);" ng-click="viewItem(items)">View</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a href="javascript:void(0);" ng-click="editItem(items)">Edit</a>
+                    </div>
+                </div>
+                <!--p>
+                    <ul >
+                        <li><strong>{{items.field_name}} :</strong> {{items.field_value}}</li>
+                    </ul>
+                </p-->
+                </div><!-- for field list ends -->
+            </div>
+            <div class="col-md-3">
+                <form class="form-search">
+                Search:
+                <input ng-model="query" value="{{query}}" ng-keyup="querySearch(query,$event.keyCode,query.content)"
+                    placeholder=" Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:10"
+                    typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)'
+                    typeahead-template-url="customTemplate.html" class="form-control">
+                <br />
+                Sort by:
+                <select ng-model="orderProp">
+                    <option value="name">Alphabetical</option>
+                    <option value="age">Newest</option>
+                </select>
+                </form>
+                <div ng-include="'partials/church-rightpanel.html'">
+                </div>
+            </div>
+                        <script type="text/ng-template" id="addItemDialogID">
+                            <div ng-include src="'partials/groupAddItemLogin.html'"></div>
+                        </script>
+                        <script type="text/ng-template" id="addItemLogoffDialogID">
+                            <div ng-include src="'partials/addItemLogoff.html'"></div>
+                        </script>
+                        <script type="text/ng-template" id="addGroupDialogID">
+                            <div ng-include src="'partials/addGroup.html'"></div>
+                        </script>
+                        <script type="text/ng-template" id="addmemberDialogID">
+                            <div ng-include src="'partials/addMemberForGroup.html'"></div>
+                        </script>
+                        <script type="text/ng-template" id="viewGroupItem">
+                            <div ng-include src="'partials/viewGroupItem.html'"></div>
+                        </script>
+                        <script type="text/ng-template" id="editGroupItem">
+                            <div ng-include src="'partials/editGroupItem.html'"></div>
+                        </script>
+          
+            
+                        
+
+        </div>
+    </div>
+</div>

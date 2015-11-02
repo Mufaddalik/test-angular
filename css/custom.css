@@ -1,0 +1,452 @@
+/*Hitaishin code*/
+@font-face
+{
+    font-family: 'Proxima_Nova_Regular';
+    src: url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.eot');
+    src: url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.eot') format('embedded-opentype'), url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.woff2') format('woff2'), url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.woff') format('woff'), url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.ttf') format('truetype'), url('../fonts/Proxima_Nova_Regular/Proxima_Nova_Regular.svg#Proxima_Nova_Regular') format('svg');
+}
+
+
+@font-face
+{
+    font-family: 'Proxima_Nova';
+    src: url('../fonts/Proxima_Nova/Proxima_Nova.eot');
+    src: url('../fonts/Proxima_Nova/Proxima_Nova.eot') format('embedded-opentype'), url('../fonts/Proxima_Nova/Proxima_Nova.woff2') format('woff2'), url('../fonts/Proxima_Nova/Proxima_Nova.woff') format('woff'), url('../fonts/Proxima_Nova/Proxima_Nova.ttf') format('truetype'), url('../fonts/Proxima_Nova/Proxima_Nova.svg#Proxima_Nova') format('svg');
+}
+
+/*Hitaishin code end*/
+@font-face
+{
+    font-family: Caflisch_Script_Web;
+    src: url('fonts/Caflisch_Script_Web.ttf');
+}
+@font-face
+{
+    font-family: Proxima_Nova;
+    src: url('fonts/Proxima_Nova.ttf');
+}
+@font-face
+{
+    font-family: 'Proxima_Nova_Regular';
+    src: url('fonts/Proxima_Nova_Regular.otf');
+}
+@font-face
+{
+    font-family: Timeless;
+    src: url('fonts/Timeless.ttf');
+}
+@font-face
+{
+    font-family: Timeless-Bold;
+    src: url('fonts/Timeless-Bold.ttf');
+}
+
+body
+{
+    font-family: 'Proxima_Nova';
+}
+
+h1.timeless
+{
+    font-size: 48px;
+    font-family: Timeless-Bold;
+}
+h2.timeless
+{
+    font-size: 24px;
+    font-family: Timeless;
+}
+h3.proxima
+{
+    font-size: 24px;
+    font-family: 'Proxima_Nova';
+}
+h4.proxima
+{
+    font-size: 20px;
+    font-family: 'Proxima_Nova';
+}
+p.proxima
+{
+    font-size: 16px;
+    font-family: 'Proxima_Nova_Regular';
+    color: #5f9fb8;
+    font-weight: normal;
+}
+sub.proxima
+{
+    font-size: 14px;
+    font-family: 'Proxima_Nova_Regular';
+}
+.dropdown-menu ng-isolate-scope
+{
+    width: 91% !important;
+}
+
+.phones li.col-lg-4 a, .phones li.col-lg-4 p
+{
+    font-family: 'Proxima_Nova';
+}
+@media (min-width: 1380px)
+{
+    .container-fluid
+    {
+        width: 1366px;
+    }
+}
+/*@media (min-width: 992px) and (max-width: 1199px) {*/
+/*.container-fluid {*/
+/*width: 1200px;*/
+/*}*/
+/*}*/
+/*@media (min-width: 768px) and (max-width: 991px) {*/
+/*.container-fluid {*/
+/*width: 1000px;*/
+/*}*/
+/*}*/
+@media (min-width: 1200px)
+{
+    .container
+    {
+        width: auto;
+    }
+}
+@media (min-width: 992px)
+{
+    .container
+    {
+        width: auto;
+    }
+}
+@media (min-width: 768px)
+{
+    .container
+    {
+        width: auto;
+    }
+}
+
+.phones li.col-lg-4
+{
+    text-align: center;
+}
+@media (min-width: 992px)
+{
+    .phones li.col-lg-4
+    {
+        width: 30.333333%;
+        float: left;
+        min-height: 250px; /*add by hitaishin*/
+    }
+}
+@media (max-width: 1200px)
+{
+    header .logo
+    {
+        padding: 0;
+    }
+}
+header .logo img
+{
+    width: 100%;
+}
+header ul li
+{
+    list-style: none;
+}
+h2.user
+{
+    color: #069b50;
+    font-weight: bold;
+    display: flex;
+}
+h2.upstreamgroup
+{
+    color: #f1b923;
+    font-weight: bold;
+    display: flex;
+}
+header img.header_icons
+{
+    float: left;
+    margin: 4px 10px 0 0;
+}
+
+/*SideBar*/
+.save_search
+{
+    float: right;
+    color: #6f94ff;
+    font-family: 'Proxima_Nova'; /*add by hitaishin*/
+}
+.saved_group_part input
+{
+    float: left;
+    margin-right: 10px;
+}
+h2.saved_group
+{
+    color: #5f9fb8;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+label.saved_group
+{
+    display: block;
+}
+.saved_group_part p.groupname
+{
+    float: left;
+}
+.saved_group_part img
+{
+    margin: -2px 0 0 5px;
+}
+
+.display_info_part ul
+{
+    padding: 0;
+}
+.display_info_part ul li
+{
+    list-style: none;
+    float: left;
+}
+.display_info_part ul li:first-child
+{
+    width: 38%;
+    margin-right: 2%;
+}
+.display_info_part ul li
+{
+    width: 4%;
+}
+.display_info_part ul li:last-child
+{
+    width: 51%;
+    margin-left: 2%;
+}
+.display_info_part ul li p.proxima
+{
+    text-align: right;
+    font-weight: bold;
+}
+h2.display_info
+{
+    color: #5f9fb8;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+label.display_info
+{
+    display: block;
+}
+.display_info_part ul li p.datatype.proxima
+{
+    color: #909090;
+    color: #909090;
+    font-size: 14px;
+    float: left;
+}
+
+
+
+
+/*add css by hitaishin*/
+a
+{
+    cursor: pointer;
+}
+.space
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.main-title
+{
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 2px;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    color: #428bca;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 2px 0 10px;
+    text-align: center;
+}
+.header_nav h2.upstreamgroup, .header_nav h2.user
+{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    margin: 4px 0px;
+    font-size: 16px;
+    font-family: 'Proxima_Nova';
+}
+header .header_nav img.header_icons
+{
+    float: none;
+    margin: 4px 10px 0 0;
+    width: 16px;
+}
+header ul.header_nav
+{
+    margin-top: 15px;
+}
+header .header_nav li
+{
+    text-align: left;
+    padding: 0px 0;
+}
+.right-space
+{
+    margin-right: 12px;
+}
+.btn-set
+{
+    position: relative;
+}
+.btn-set .loader_img
+{
+    position: absolute;
+    right: 75%;
+    top: 8px;
+}
+.member_form h1
+{
+    font-size: 25px;
+}
+.phone-images_profile
+{
+    padding-top: 10px;
+    margin-right: 2%;
+}
+.member_form .phone-images_2 a
+{
+    float: none;
+    margin: 0px;
+    text-align: center;
+}
+.member_form .phone-images_2
+{
+    text-align: center;
+}
+.member_form strong
+{
+    color: #5f9fb8;
+    margin-right: 10px;
+}
+.formLog label
+{
+    font-weight: normal;
+}
+.formLog .btn
+{
+    font-size: 16px;
+    padding: 4px 18px;
+}
+
+.drop-down-box
+{
+    background: none repeat scroll 0 0 #fdfdfd;
+    min-width: 330px;
+    position: absolute;
+    z-index: 1024;
+}
+.drop-down-box .content.ng-scope
+{
+    float: left;
+    border: 1px solid #eee;
+    padding: 8px;
+    box-shadow: 0 0 3px #ddd;
+}
+.link
+{
+    cursor: pointer;
+}
+.form-design
+{
+    width: auto;
+}
+.img-left
+{
+    width: 40%;
+    float: left;
+}
+.img-left img
+{
+    width: 100%;
+    height: auto;
+}
+.content-right
+{
+    margin-left: 17%;
+    margin-top: -12%; /*  width:50%; float:left; padding-left:10px;*/
+}
+.form-design.btn-set a
+{
+    float: left;
+}
+.form-design.btn-set button
+{
+    float: right;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+.Uname
+{
+    font-size: 15px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+.Uemail
+{
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+.modal-backdrop.am-fade
+{
+    opacity: .5;
+    transition: opacity .15s linear;
+}
+.ng-enter
+{
+    opacity: 0;
+}
+.ng-enter-active
+{
+    opacity: .5;
+}
+.ng-leave
+{
+    opacity: .5;
+}
+.ng-leave-active
+{
+    opacity: 0;
+}
+
+/*add css by hitaishin*/
+
+.dropdown-menu
+{
+    width: auto !important;
+}
+.content-right
+{
+    margin-left: 45%;
+    margin-top: -50%;
+}
+.content-right1
+{
+    margin-left: 45%;
+    margin-top: 25%;
+    color: #428bca;
+}
+.btn-secondary
+{
+    width: 100% !important;
+}

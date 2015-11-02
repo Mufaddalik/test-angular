@@ -1,0 +1,102 @@
+<form class="formLog" name="form" ng-controller="InsideCtrl" ng-submit="doAdd(user)" role="form" enctype="multipart/form-data">
+<div class="row ">
+    <div class="col-sm-12">
+        <h2 class="main-title">
+            Sign up
+        </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="username">
+                    Email-Id</label></div>
+            <div class="col-sm-8">
+                <input type="text" name="user.emailid" id="user.emailid" class="form-control" ng-model="user.emailid"
+                    required />
+                <span ng-show="form.user.emailid.$dirty && form.user.emailid.$error.required" class="help-block">
+                    Emailid is required</span></div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-4 ">
+                <label for="password">
+                    Password</label></div>
+            <div class="col-sm-8">
+                <input type="password" name="user.password" id="user.password" class="form-control"
+                    ng-model="user.password" required />
+                <span ng-show="form.user.password.$dirty && form.user.password.$error.required" class="help-block">
+                    Password is required</span>
+            </div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="password">
+                    Confirm Password</label></div>
+            <div class="col-sm-8">
+                <input type="password" name="cn_password" id="cn_password" class="form-control" ng-model="user.cn_password"
+                    required />
+                <span ng-show="form.user.cn_password.$dirty && form.user.cn_password.$error.required"
+                    class="help-block">Password is required</span>
+            </div>
+        </div>
+        <!--          <div class="form-group">
+        <label for="password">Image</label>
+        <i class="fa fa-lock"></i>
+        <input type="file" file-input="files" name="file" class="form-control" ng-model="user.file" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+    </div>-->
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="password">
+                    First name</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" name="fname" id="fname" class="form-control" ng-model="user.fname"
+                    required />
+                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">
+                    Firstname is required</span></div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="password">
+                    Last name</label></div>
+            <div class="col-sm-8">
+                <input type="text" name="lname" id="lname" class="form-control" ng-model="user.lname"
+                    required />
+                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">
+                    Lastname is required</span></div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-4 ">
+                <label for="email">
+                    Upload Image</label></div>
+            <!--<div ng-repeat="image in images" style="float: right; margin: -9px -40px;">
+                <img id="imagePreview{{$index}}" src="#" alt="" style="width: 50px; height: 50px;" />
+            </div>-->
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <!--<input type="file" id="img" nv-file-select="" uploader="uploader" multiple class="form-control"
+                        onchange="angular.element(this).scope().addImage(this)" accept="image/*" />-->
+                    <input type="file" ng-file-select file-model="files" name="group_img" class="form-control"
+                        ng-file-change="upload($files)" accept="image/*" />
+                </span>
+            </div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-8 ">
+            </div>
+            <div class="col-sm-4 btn-set  text-right">
+                <button type="submit" class="width-35  btn btn-sm btn-primary" data-ng-disabled="loginForm.$invalid">
+                    <img class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+</form>

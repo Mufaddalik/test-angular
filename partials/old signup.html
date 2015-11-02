@@ -1,0 +1,56 @@
+<form name="form" ng-submit="doAdd(user)" role="form">
+  <div class="row "><div class="col-sm-12"> <h2 class="main-title">Sign up </h2></div></div>
+   <div class="row space">
+        <div class="col-sm-4"><label  for="username">Email Id</label></div>
+       
+           <div class="col-sm-8"><input type="text" name="user.emailid" id="user.emailid" class="form-control" ng-model="user.emailid" required />
+        <span ng-show="form.useremailid.$dirty && form.useremailid.$error.required" class="help-block">Email Id Is Mandatory</span>
+        <span ng-show="form.useremailid.$dirty && form.useremailid.$error.email" class="help-block">Please Enter Valid Email Id</span></div>
+    </div>
+    <div class="row space">
+       <div class="col-sm-4 "> <label   for="password">Password</label></div>
+       
+       <div class="col-sm-8"><input type="password" name="user.password" id="user.password" class="form-control"  ng-model="user.password" required ng-minlength="8"  />
+            <span ng-show="form.user.password.$dirty && form.userpassword.$error.required" class="help-block">Password is required.</span>
+            <span ng-show="form.user.password.$dirty && form.userpassword.$error.minlength" class="help-block">Minimum 8 characters.</span>
+            <span ng-show="form.user.password.$dirty && form.userpassword.$error.pattern" class="help-block">Must start with a letter, and contain letters &amp; numbers only</span>
+        </div>
+    </div>
+    <div class="row space">
+        <div class="col-sm-4" ><label   for="password">Confirm Password</label></div>
+         <div class="col-sm-8">
+        <input type="password" name="user.cn_password" id="cn_password" class="form-control" ng-model="user.cnpassword" required ng-minlength="8" ng-pattern="/^[A-z][A-z0-9]*$/"  compare-to="form.userpassword" />
+        <span ng-show="form.user.cn_password.$dirty && form.usercn_password.$error.required" class="help-block">Password is required.</span>
+        <span ng-show="form.user.cn_password.$dirty && form.usercn_password.$error.noMatch" class="help-block">Passwords do not match.</span>
+    </div></div>
+<!--          <div class="form-group">
+        <label for="password">Image</label>
+        <i class="fa fa-lock"></i>
+        <input type="file" file-input="files" name="file" class="form-control" ng-model="user.file" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+    </div>-->
+          <div class="row space">
+       <div class="col-sm-4"> <label  for="password">First name</label>
+        </div>
+      <div class="col-sm-8">  <input type="text" name="fname" id="fname" class="form-control" ng-model="user.fname" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Firstname is required</span></div>
+    </div>
+    
+    
+    
+     
+           <div class="row space">
+         <div class="col-sm-4"><label  for="password">Last name</label></div>
+      <div class="col-sm-8">  
+        <input type="text" name="lname" id="lname" class="form-control" ng-model="user.lname" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Lastname is required</span></div>
+    </div>
+    
+    
+    <div class="row space text-right btn-set">
+      <div class="col-md-12">
+         <button type="submit" class="width-35  btn btn-sm btn-primary"  data-ng-disabled="loginForm.$invalid">
+                                <img  class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                                Submit
+                            </button></div></div>
+</form>

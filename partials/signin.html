@@ -1,0 +1,78 @@
+<!--<form name="form"  role="form">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="username" id="username" class="form-control" ng-model="username" required />
+        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" id="password" class="form-control" ng-model="password" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+    </div>
+    <div class="form-actions">
+        <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-danger" ng-click="login()">Login</button>
+        <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    </div>
+</form>-->
+<form class="formLog" name="form" class="form-horizontal" ng-submit="doLogin(login)"
+role="form">
+<div class="row ">
+    <div class="col-sm-12">
+        <h2 class="main-title">
+            Sign in
+        </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="row space">
+            <div class="col-sm-4 ">
+                <label for="email">
+                    Email ID</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <input type="text" class="form-control" placeholder="Email ID" name="email" ng-model="login.email"
+                        required focus />
+                </span>
+            </div>
+        </div>
+        <div class="row space">
+            <div class="col-sm-4 ">
+                <label for="password">
+                    Password
+                </label>
+            </div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="login.password"
+                        required />
+                </span>
+            </div>
+        </div>
+        <div class="space">
+        </div>
+        <div class="row space">
+            <div class="col-sm-4 ">
+            </div>
+            <div class="col-sm-4">
+                <a href="https://www.facebook.com/" target="_blank">Login Facebook</a>
+            </div>
+            <div class="col-sm-4 btn-set text-right">
+                <img class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                <button type="submit" class="width-35  btn btn-sm btn-primary" s data-ng-disabled="loginForm.$invalid">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+<div class="space-4">
+</div>
+<span class="lbl col-sm-3"></span>
+</form>

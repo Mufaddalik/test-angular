@@ -1,0 +1,171 @@
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-repeat="item in UserDetails" class="col-md-9">
+                <form class="formLog" name="form1" ng-controller="ProfileCtrl" class="form-horizontal"
+                ng-submit="UpdateProfile(item)" role="form">
+                <div class="row space">
+                    <div class="col-sm-4">
+                        <img ng-src="{{item.imageUrl}}" style="width: 192px; height: 154px;" class="">
+                        <h2>
+                            Profile Details</h2>
+                        <h3>
+                            <strong>{{item.first_name+" "+ item.last_name}}</strong></h3>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>First Name :</strong></div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="item.first_name" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Last Name : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="item.last_name" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Email : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="item.email_id" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Contact 1 : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Contact 1" ng-model="item.contact_1" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Contact 2 : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Contact 2" ng-model="item.contact_2" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Contact 3 : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Contact 3" ng-model="item.contact_3" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Address : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Address" ng-model="item.address" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>City : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="City" ng-model="item.city" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>State : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="State" ng-model="item.state" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Zip : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Zip" ng-model="item.zip" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Access Key : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Access key" ng-model="item.access_key" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-2">
+                        <strong>Last Login : </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="block input-icon input-icon-right">{{item.last_login}}</span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Edit
+                        </button>
+                      
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="Reset()">
+                            Reset
+                        </button>
+                        
+                    </div>
+                </div>
+                <div class="row space">
+                </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form class="form-search">
+                Search:
+                <input ng-model="query" value="{{query}}" ng-keyup="querySearch(query,$event.keyCode,query.content)"
+                    placeholder=" Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:10"
+                    typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)'
+                    typeahead-template-url="customTemplate.html" class="form-control">
+                <br />
+                Sort by:
+                <select ng-model="orderProp">
+                    <option value="name">Alphabetical</option>
+                    <option value="age">Newest</option>
+                </select>
+                </form>
+                <div ng-include="'partials/church-rightpanel.html'">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

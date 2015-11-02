@@ -1,0 +1,324 @@
+<form class="formLog" name="form" class="form-horizontal" novalidate ng-controller="GroupCtrl">
+<div class="row ">
+    <div class="col-sm-12">
+        <h2 class="main-title">
+            Add An Item</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="type">
+                    Type:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <select ng-model="additem.type" ng-change="typeSelect1(additem.type)">
+                        <option value="number">Number</option>
+                        <option value="date">Date/Time</option>
+                        <option value="shorttext">Short Text</option>
+                        <option value="blob">Long-text/Blob</option>
+                        <option value="image">Image</option>
+                        <option value="group">Group</option>
+                        <option value="individual">Individual</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="row space" ng-show="label_name">
+            <div class="col-sm-4">
+                <label for="labelname">
+                    Label-Name:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    <input type="text" class="form-control" placeholder="Label" name="labelname" ng-model="additem.labelname"
+                        required focus />
+                </span>
+            </div>
+        </div>
+        <div class="row space" ng-show="ck_div">
+            <!--          <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>-->
+            <div class="modal-body">
+                <textarea class="ck-editor" ng-model="additem.ck_data"></textarea>
+            </div>
+            <!--        <div class="modal-footer">
+            
+            <button class="btn btn-warning" ng-click="Reset()">Reset</button>
+        </div>-->
+        </div>
+        <div ng-show="label_value">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="fvalue">
+                        Label-Value:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="value" name="fvalue" ng-model="additem.fvalue"
+                            required />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="date_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="date_time">
+                        Date:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="date" ng-model="additem.date_time" class="form-control" placeholder="Date"
+                            name="date_time" required="true">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="increment_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="fvalue">
+                        Increment By:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="Increment By" name="labelname"
+                            ng-model="additem.increment_by" required focus />
+                    </span>
+                </div>
+            </div>
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="fvalue">
+                        Increment When:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <select ng-model="additem.increment_when">
+                            <option value="day">Day</option>
+                            <option value="week">Week</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                            <option value="other">Other</option>
+                            <option value="individual">Individual</option>
+                        </select></span>
+                </div>
+            </div>
+        </div>
+        <div class="row space" ng-show="image">
+            <div class="col-sm-4">
+                <label for="group_img">
+                    Image:</label></div>
+            <div class="col-sm-8">
+                <span class="block input-icon input-icon-right">
+                    
+                    <input type="file" ng-file-select file-model="files" name="group_img" class="form-control"
+                        ng-file-change="upload($files)" accept="image/*" />
+                    <div ng-repeat="image in images" style="float: right; margin: -40px -52px;">
+                        <img id="imagePreview{{$index}}" src="#" alt="" style="width: 50px; height: 50px;" />
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div ng-show="group_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="grouplabel">
+                        Group Name:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="Group Name" name="grouplabel"
+                            ng-model="additem.grouplabel" required focus />
+                    </span>
+                </div>
+            </div>
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="group_imgGroup">
+                        Group Image:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="file" ng-file-select file-model="files" name="group_img" class="form-control"
+                            ng-file-change="upload($files)" accept="image/*" />
+                        <div ng-repeat="image in imagesGroup" style="float: right; margin: -40px -52px;">
+                            <img id="imagePreview1{{$index}}" src="#" alt="" style="width: 50px; height: 50px;" />
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="type">
+                        Add Member:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <select ng-model="additem.member" multiple="" style="width: 100%;">
+                            <option ng-repeat="operator in churchmembersDetails" value="{{operator.id}}">{{operator.name}}</option>
+                        </select>
+                    </span>
+                </div>
+                <span>
+                    <input type="checkbox" ng-model="additem.is_private" value="1" >Make Group Private</input>
+                    </span>
+                    <!-- <a ng-click="newMember()" class="btn btn-s">make new member ?</a> -->
+            </div>
+        </div>
+        <div ng-show="access_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="accessby">
+                        Access-by:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <label>
+                            <input type="radio" value="public" name="accessby" ng-click="toggleAddItemSelection('public')"
+                                ng-model="additem.accessby" checked="checked" ngChecked=""/>Public</label>
+                        <label>
+                            <input type="radio" value="private" name="accessby" ng-click="toggleAddItemSelection('private')"
+                                ng-model="additem.accessby" />Private</label>
+                    </span>
+                </div>
+            </div>
+            <div ng-show="options">
+                <div class="row space">
+                    <div class="col-sm-4">
+                        <label for="accessby">Who can view :</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                            <select ng-model="additem.view_access" ng-change="viewAccess()">
+                                <option value="1">Only me</option>
+                                <option value="2">Any one this Password</option>
+                                <option value="3">Anyone in this Group</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                 <div class="row space" ng-show="view_password">
+                    <!--       <div class="row space">-->
+                    <div class="col-sm-4">
+                        <label for="passkey">View Password:</label></div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" placeholder="pass-key" class="form-control" name="passkey" ng-model="additem.view_passkey">
+                        </span>
+                    </div>
+                </div>
+                 <div class="row space" ng-show="view_allowed_group">
+                    <!--       <div class="row space">-->
+                    <div class="col-sm-4">
+                        <label for="passkey">Select Group:</label></div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                        <!--input type="text" placeholder="pass-key" class="form-control" name="passkey" ng-model="additem.view_passkey"-->
+                            <select ng-model="additem.view_group" style="width: 100%;">
+                                <option ng-repeat="operator in allowedGroup" value="{{operator.group_id}}">{{operator.group_name}}</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="row space">
+                    <div class="col-sm-4">
+                        <label for="accessby">Who can edit :</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                            <select ng-model="additem.edit_access" ng-change="editAccess()">
+                                <option value="1">Only me</option>
+                                <option value="2">Any one this Password</option>
+                                <option value="3">Anyone in this Group</option>
+                            </select>
+                        </span>
+                    </div>    
+                </div>
+              
+                <div class="row space" ng-show="edit_password">
+                    <!--       <div class="row space">-->
+                    <div class="col-sm-4">
+                        <label for="passkey">Edit Password:</label></div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" placeholder="pass-key" class="form-control" name="passkey" ng-model="additem.edit_passkey">
+                        </span>
+                    </div>
+                </div>
+                <div class="row space" ng-show="edit_allowed_group">
+                    <!--       <div class="row space">-->
+                    <div class="col-sm-4">
+                        <label for="passkey">Select Group:</label></div>
+                    <div class="col-sm-8">
+                        <span class="block input-icon input-icon-right">
+                        <!--input type="text" placeholder="pass-key" class="form-control" name="passkey" ng-model="additem.view_passkey"-->
+                            <select ng-model="additem.edit_group" style="width: 100%;">
+                                <option ng-repeat="operator in allowedGroup" value="{{operator.group_id}}">{{operator.group_name}}</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <!-- div ng-show="options_text">
+                    <span style="float: right;">
+                        <input type="checkbox">Auto-generated</span>
+                </div-->
+                <!--                        <div class="col-sm-8">
+            <span class="block input-icon input-icon-right">
+            <label> <input  type="radio" value="public" name="private" ng-click="togglePrivate('Only to me')" checked/>Only to me</label>
+            <label> <input  type="radio" value="private" name="private" ng-click="togglePrivate('Only to Group Members')" />Only to Group Members</label>
+           <label><input  type="radio" value="public" name="private" ng-click="togglePrivate('To Individual Member')"  />To Individual Member</label>
+            </span>
+                        </div>-->
+            </div>
+            </div>
+        </div>
+        <div ng-show="addmember_div">
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="membername">
+                        Member Name:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="member Name" name="membername"
+                            ng-model="additem.membername" required focus />
+                    </span>
+                </div>
+            </div>
+            <div class="row space">
+                <div class="col-sm-4">
+                    <label for="email">
+                        Email Id:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" class="form-control" placeholder="Email Id" name="email" ng-model="additem.email"
+                            required focus />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="space">
+        </div>
+        <div class="clearfix">
+            <div class="row space">
+                <div class="col-sm-8 ">
+                </div>
+                <div class="col-sm-4 btn-set  text-right">
+                    <img class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="doAddItem(additem)">
+                        Post
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="space-4">
+        </div>
+        <span class="lbl col-sm-3"></span>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+<!--                  <div ng-repeat="editor in ckEditors">
+    <textarea data-ng-model="editor.value" data-ck-editor></textarea>
+    <br />
+    </div>
+    <button ng-click="addEditor()">New Editor</button>-->
+</div>
+</form>

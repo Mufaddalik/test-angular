@@ -1,0 +1,40 @@
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9" ng-controller="AddUserCtrl" >
+            <form name="appForm" novalidate class="app-form">
+            <p>Group Profile - <input ng-model="group_profile" class="form-control"></p>
+            <p>Image :</p>
+                
+            <div ng-repeat="image in images">
+                
+                <img id="imagePreview{{$index}}" src="#" alt="" style="width: 100px;height:100px;" />
+           
+</div>
+<p>
+    <input type="file" id="img" ng-model="group_img"  class="form-control" onchange="angular.element(this).scope().addImage(this)" accept="image/*"/>
+
+        </p>
+<!--            <a ng-click="add();">add</a> -->
+            <p>First Name : <input name="fname" ng-model="fname" id="user-fname" class="form-control" required></p>
+            <p>Last Name : <input name="lname" ng-model="lname" id="user-lname" class="form-control" required></p>
+            <p>Display Group : <input name="user-displaygroup"  required ng-model="displayngroup" id="user-name" class="form-control"></p>
+            <p>Children :<span>Use comma(,) for multiple names</span>
+<!--                <div ng-repeat="item in items">-->
+                    <input type="text"  ng-model="children" class="form-control">
+<!--                </div>-->
+            </p>
+            <p>Group Membership : <input ng-model="group_membership" required class="form-control"></p>
+            <p>Mobile Text :<input ng-model="mobile_text" class="form-control"></p>
+            <p>Long-form Text : <input ng-model="long_form_text" class="form-control"></p>
+            <p>Voice : <input ng-model="voice" class="form-control"></p>
+            <p>Image Mail : <input ng-model="image_mail" class="form-control"></p>
+            <p>Video Chat :<input ng-model="video_chat" class="form-control"></p>
+            <button class="btn btn-large btn-success" ng-click="addNewUser()">Add</button>
+       
+            </form>
+        </div>
+        </div>
+</div>

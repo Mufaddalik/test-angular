@@ -1,0 +1,82 @@
+
+<!--    -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-5 col-lg-5">
+            <a href="#/" class="logo">
+                <img src="img/logo.png"></a></div>
+        <div class="col-xs-12 col-md-7 col-lg-7  clearfix text-right">
+            <div class="col-xs-12 col-md-12 col-lg-12   clearfix text-right">
+                <button type="button" class="btn btn-primary" ng-click="signin()" ng-show="signinBtn">
+                    Sign in</button>
+                <button type="button" ng-click="signup()" class="btn btn-primary" ng-show="signupBtn">
+                    Sign up</button>
+                <div class="col-xs-12 col-md-12 col-lg-12 ">
+                    <ul class=" navbar-right header_nav">
+                        <li ng-show="userArrowBtn">
+                            <input type="hidden" value="{{username}}">
+                            <span data-animation="am-flip-x" bs-dropdown="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="img/users_icon.png" class="header_icons link">
+                                <h2 class="user timeless link" id="user">
+                                    {{username}}</h2>
+                            </span>
+                            <!--   <script type="text/ng-template" id="userOpenDiv">
+    <div class="form-design">
+        <div class="img-left">
+            <img src="{{userimage}}">
+             <a href="#">Change Password</a>
+        </div>
+        <div class="content-right">
+            <p class="Uname">{{userid}}</p>
+            <p class="Uemail">{{useremail}}</p>
+          <button type="button" ng-click="logout()" class="btn btn-primary" ng-show="logoutBtn">View Profile</button>
+        </div>
+        <div class="form-design btn-set">
+         
+          <button type="button" ng-click="logout()" class="btn btn-primary" ng-show="logoutBtn">Sign out</button></div>
+    </div>
+    </script>-->
+                        </li>
+                        <li>
+                            <img src="img/street_icon.png" class="header_icons">
+                            <h2 class="upstreamgroup timeless"></h2>
+                        </li>
+                    </ul>
+                    <!--            <input type="hidden" value="{{searchData}}">-->
+                    <!--           "-->
+                </div>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" style="float: left;">
+            <!--<ul class="nav navbar-nav">
+        <li ><a href="#">Home</a>
+        </li>
+        <li ><a ng-href="#addGroup">Add Group</a>
+        </li>
+        <li ><a ng-href="#/page2">Add User</a>
+        </li>
+        <li ><a ng-href="#/page3">Page 3 (Sample Factory)</a>
+        </li>
+        <li><a href="javascript:" ng-click="logout()">Logout</a>
+        </li>
+      </ul>-->
+        </div>
+    </div>
+</div>
+<!--<div ng-hide="loginAlertMessage">Dynamic user feedback message comes here.</div>   -->
+<script type="text/ng-template" id="signInDialogID">
+<div ng-include src="'partials/signin.html'"></div>            
+  
+</script>
+<script type="text/ng-template" id="signupDialogID">
+      <div ng-include src="'partials/signup.html'"></div>
+</script>
+<script type="text/ng-template" id="imageUploadDialogID">
+      <div ng-include src="'partials/uploadImage.html'"></div>
+</script>
+<script type="text/ng-template" id="ChangePasswordDialogID">
+      <div ng-include src="'partials/ChangePassword.html'"></div>
+</script>
+<!--<script type="text/ng-template" id="uploadDialogID">
+      <div ng-include src="'partials/uploadImage.html'"></div>
+</script>-->

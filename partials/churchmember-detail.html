@@ -1,0 +1,120 @@
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="container" ng-show="search_result_div">
+                <ul class="phones row">
+                    <li ng-repeat="churchmember in churchmembersDetails | filter:query " class="thumbnail phone-listing col-lg-4 col-md-6 col-sm-6">
+                        <a href="#/churchs/{{churchmember.id}}" class="thumb">
+                            <img style="width: 192px; height: 154px;" ng-src="{{churchmember.imageUrl}}"></a>
+                        <a href="#/churchs/{{churchmember.id}}">{{churchmember.name}}</a>
+                        <p>
+                    </li>
+                </ul>
+            </div>
+            <div ng-repeat="churchmember in churchmembers" ng-show="user_profile_div" class="col-md-9 ng-scope member_form">
+                <div class="phone-images_2">
+                    <img ng-src="{{churchmember.imageUrl}}" style="width: 192px; height: 154px;" class="phone-images_profile">
+                    <a href="#changegrouppic">Change Profile Picture</a></div>
+                <h1>
+                    User Profile - {{churchmember.firstname+" "+churchmember.lastname}}</h1>
+                <p>
+                    <strong>First Name :</strong> {{churchmember.firstname}}</p>
+                <p>
+                    <strong>Last Name : </strong>{{churchmember.lastname}}</p>
+                <!--        <> {{labelname}}
+-->
+                <p>
+                    <ul ng-repeat="item in Items">
+                        <li><strong>{{item.field_name}} :</strong> {{item.field_value}}</li>
+                    </ul>
+                </p>
+                <p>
+                    <a ng-click="addItem()" class="btn btn-s">Add an Item</a>
+                </p>
+            </div>
+            <script type="text/ng-template" id="addItemDialogID">
+      <div ng-include src="'partials/addItemLogin.html'"></div>
+            </script>
+            <script type="text/ng-template" id="addItemLogoffDialogID">
+      <div ng-include src="'partials/addItemLogoff.html'"></div>
+            </script>
+            <script type="text/ng-template" id="addGroupDialogID">
+      <div ng-include src="'partials/addGroup.html'"></div>
+            </script>
+            <script type="text/ng-template" id="addmemberDialogID">
+      <div ng-include src="'partials/addMemberForGroup.html'"></div>
+            </script>
+        </div>
+        <!--        <div class="col-md-3">
+            Sidebar content
+
+            Search: <input ng-model="query" class="form-control">
+            <br/>
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="name">Alphabetical</option>
+                <option value="age">Newest</option>
+            </select>
+            
+                
+ 
+                <div style="clear: both"></div><br/>
+                <a class="save_search" ng-click="reset()">Save search as new Group</a>
+                <div style="clear: both"></div><br/><br/>
+                <div class="saved_group_part">
+                    <h2 class="timeless saved_group">Saved Groups</h2>
+                    <a class="save_search" ng-click="" href="">Edit selected Group</a>
+                    <div style="clear: both"></div>
+                    <label ng-repeat="role in savedgroup" class="display_info">
+                        <input type="checkbox" class="saved_checkbox" checklist-model="user.savedgroup" checklist-value="role">
+                        <p class="proxima groupname">{{role.text}}</p>
+                        <img src="{{role.icon_url}}">
+                        <div style="clear: both"></div>
+                    </label>
+                </div>
+
+                <br/><br/>
+
+                <div class="display_info_part">
+                    <h2 class="timeless display_info">Display Info</h2>
+                    <a class="save_search" ng-click="">Edit Info Lines</a>
+                    <div style="clear: both"></div>
+                    <div ng-repeat="role in displayinfo" class="saved_group">
+                        <ul>
+                            <li><p class="proxima">{{role.text}}</p></li>
+                            <li><input type="checkbox" checklist-model="user.displayinfo" checklist-value="role"></li>
+                            <li><p class="datatype proxima">{{role.datatype}}</p></li>
+                        </ul>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+
+            </div>-->
+        <div class="col-md-3">
+            <script type="text/ng-template" id="customTemplate.html">
+                <a>
+                    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+
+                </a>
+            </script>
+            <form class="form-search">
+            Search:
+            <input ng-model="query" value="{{query}}" ng-keyup="querySearch(query,$event.keyCode,query.content)"
+                placeholder=" Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:10"
+                typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)'
+                typeahead-template-url="customTemplate.html" class="form-control">
+            <br />
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="name">Alphabetical</option>
+                <option value="age">Newest</option>
+            </select>
+            </form>
+            <div ng-include="'partials/church-rightpanel.html'">
+            </div>
+        </div>
+    </div>
+</div>

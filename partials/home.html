@@ -1,0 +1,47 @@
+
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+<hr>
+
+                     
+<div class="container-fluid" ng-controller="HomeCtrl">
+    <div class="row">
+        <script type="text/ng-template" id="customTemplate.html">
+            <a>
+            <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+  
+            </a>
+        </script>
+        <div class="col-md-6" style="left: 0%;padding: 50px;">
+
+            <form name="form" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="search">  </label>
+                    <div class="col-sm-9">
+                        <span class="block input-icon input-icon-right">
+                            <input ng-model="query" placeholder="Search  " ng-keyup="dosearchQuery(query,$event.keyCode)" typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:20" typeahead-min-length='1' id="query"   typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control">
+                        
+                        </span>
+                       <img  class="loader_img"  src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="clearfix">
+                    <div class="row" style="padding: 10px;">
+                        <label class="col-sm-3 control-label no-padding-right"> </label>
+                        <div class="col-sm-7">
+  
+                            <button type="submit                                </div>
+                                    </div>" class="width-35 pull-left btn btn-sm btn-primary" S data-ng-disabled="loginForm.$invalid" ng-click="doSearch(query)">
+
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

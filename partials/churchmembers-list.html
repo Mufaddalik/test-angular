@@ -1,0 +1,144 @@
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="dist/ng-modal.css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/ngDialog.css">
+<link rel="stylesheet" href="css/ngDialog-theme-default.css">
+<link rel="stylesheet" href="css/ngDialog-theme-plain.css">
+<style type='text/css'>
+    body{/*font-family:'Helvetica Neue',Helvetica,sans-serif*/
+	 font-family: 'Proxima_Nova'; }/*change by hitaishin*/
+    h1 { padding: 0; margin: 0; }
+    .ng-cloak { display: none; }
+</style>
+
+<header id="navbar" ng-controller="HeaderCtrl">
+    <div ng-include src="'partials/header.html'"></div>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-9">
+            <!--Body content-->
+            <div class="container">
+                <ul class="phones row">
+                    <li ng-repeat="churchmember in churchmembers | filter:query " class="thumbnail phone-listing col-lg-4 col-md-6 col-sm-6">
+                        <a href="#/churchs/{{churchmember.id}}" class="thumb"><img style="width:192px;height: 154px;" ng-src="{{churchmember.imageUrl}}"></a>
+                        <a href="#/churchs/{{churchmember.id}}">{{churchmember.name}}</a>
+                        <p>{{churchmember.contact_1}}</p>
+<!--                        <p>{{churchmember.contact_2}}</p>
+                        <p>{{churchmember.contact_3}}</p>
+                        <p>{{churchmember.street_address}}</p>
+                        <p>{{churchmember.city}}</p>
+                        <p>{{churchmember.username}}</p>
+                        <p>{{churchmember.zip}}</p>-->
+<!--                         <p>{{churchmember.children}}</p>-->
+                        
+                    </li>
+                </ul>
+               </div>
+
+        </div>
+        <div class="col-md-3">
+                    <script type="text/ng-template" id="customTemplate.html">
+                <a>
+                    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+
+                </a>
+                </script>
+        <form class="form-search" >
+                        Search: <input type="text" ng-model="query"  ng-keyup="dosearchQuery(query,$event.keyCode)"  placeholder=" Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:10" typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control">
+                        <br/>                                                                   
+                        Sort by:
+                        <select ng-model="orderProp">
+                            <option value="name">Alphabetical</option>
+                            <option value="age">Newest</option>
+                        </select>
+                    </form>
+                <div ng-include="'partials/church-rightpanel.html'"></div>
+        </div>
+
+<!--        <script type="text/ng-template" id="savedGroupDialogID">
+            <form name="form" class="form-horizontal" ng-submit="doSaveNewGroup(group.name)" role="form">
+                <div class="form-group">
+                    <p ng-show="ngDialogData.q">Group Name :<span>{{ngDialogData.q}}</span></p>
+
+                    <label for="Save Group As :">Save Group As : </label>
+
+                    <input type="text" name="saveGroup" id="saveGroup" class="form-control" ng-model="group.name" required />
+                    <span ng-show="form.emailid.$dirty && form.emailid.$error.required" class="help-block">Group Name is required</span>
+                </div>
+                <div class="form-group">
+                    <label for="Save Group As :" style="text-align: center;">Select Group Label</label>
+
+                    <table> <tr>
+                            <td ng-repeat="role in savedgroup">
+                                <span>
+                                                           <input type="checkbox" class="saved_checkbox" checklist-model="savedgroup" checklist-value="role"> 
+                                    <input  type="radio" value="{{role.icon_url}}" ng-checked="selection.indexOf(role.icon_url) > -1" name="radio" ng-click="toggleSelection(role.icon_url)" />
+                                </span> 
+                                &nbsp;&nbsp; <span><img src="{{role.icon_url}}"></span>&nbsp;&nbsp;
+                            </td></tr>
+                    </table> </div>
+
+                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary"  data-ng-disabled="loginForm.$invalid">
+
+                    Add
+                </button>
+            </form>
+            </script>
+            <script type="text/ng-template" id="customTemplate.html">
+                <a>
+                    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+
+                </a>
+                </script>
+                <div class="col-md-3">
+                    Sidebar content
+                    <form class="form-search">
+                        Search: <input ng-model="query" placeholder=" Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:10" typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control" style="width:350px;">
+                        <br/>                                                                   
+                        Sort by:
+                        <select ng-model="orderProp">
+                            <option value="name">Alphabetical</option>
+                            <option value="age">Newest</option>
+                        </select>
+                    </form>
+
+
+                    <div style="clear: both"></div><br/>
+                    <a class="save_search" ng-click="reset()">Save search as new Group</a>
+                    <div style="clear: both"></div><br/><br/>
+                    <div class="saved_group_part">
+                        <h2 class="timeless saved_group">Saved Groups</h2>
+                        <a class="save_search" ng-click="" href="">Edit selected Group</a>
+                        <div style="clear: both"></div>
+                        <label ng-repeat="role in savedgroup" class="display_info">
+                            <input type="checkbox" class="saved_checkbox" checklist-model="user.savedgroup" checklist-value="role">
+                            <p class="proxima groupname">{{role.text}}</p>
+                            <img src="{{role.icon_url}}">
+                            <div style="clear: both"></div>
+                        </label>
+                    </div>
+
+                    <br/><br/>
+
+                    <div class="display_info_part">
+                        <h2 class="timeless display_info">Display Info</h2>
+                        <a class="save_search" ng-click="">Edit Info Lines</a>
+                        <div style="clear: both"></div>
+                        <div ng-repeat="role in displayinfo" class="saved_group">
+                            <ul>
+                                <li><p class="proxima">{{role.text}}</p></li>
+                                <li><input type="checkbox" checklist-model="user.displayinfo" checklist-value="role"></li>
+                                <li><p class="datatype proxima">{{role.datatype}}</p></li>
+                            </ul>
+                            <div style="clear: both"></div>
+                        </div>
+                    </div>
+
+                </div>-->
+
+                
+        </div>
+    </div>

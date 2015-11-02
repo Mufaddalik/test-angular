@@ -1,0 +1,67 @@
+ <form class="formLog" name="form" class="form-horizontal" ng-submit="doAddGroup(addgroup)" role="form">
+ <div class="row "><div class="col-sm-12"> <h2 class="main-title">Make  Group</h2></div></div>
+               
+                 <div class="row"> <div class="col-md-1"></div>
+  <div class="col-md-10">
+      
+       <div class="row space">
+                        <div class="col-sm-4"> <label  for="label">Group Name:</label></div>
+                        <div class="col-sm-8">
+                           <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="Group Name" name="label" ng-model="addgroup.label" required focus/>
+                               
+                            </span>
+                        </div>
+                    </div>
+      <div class="row space" >
+                        <div class="col-sm-4"> <label  for="image"> Group Image:</label></div>
+                        <div ng-repeat="image in images"   style="float: right;">
+               <img id="imagePreview{{$index}}" src="#" alt="" style="width: 50px;height:50px;" />
+           </div>
+                        <div class="col-sm-8">
+                           <span class="block input-icon input-icon-right">
+                               <input type="file" id="img" ng-model="group_img"  class="form-control" onchange="angular.element(this).scope().addImage(this)" accept="image/*"/>
+       
+                            </span>
+                        </div>
+                    </div>
+      
+   <div class="row space">
+                        <div class="col-sm-4"> <label  for="type"> Add Member:</label></div>
+                        <div class="col-sm-8">
+                           <span class="block input-icon input-icon-right">
+                               <select ng-model="additem.type" ng-change="typeSelect(additem.type)" multiple="" style="  width: 100%;">
+<option ng-repeat="operator in churchmembersDetails" value="{{operator.id}}">{{operator.name}}</option>
+                        </select>
+                            </span>
+                        </div>
+                        <span><a ></span>
+                        <a  ng-click="newMember()" class="btn btn-s">make new member ?</a>
+                    </div>
+      
+     <div class="space"></div>
+     
+                     <div class="clearfix">
+                     
+                         <div class="row space">
+                         <div class="col-sm-8 "></div>
+                        <div class="col-sm-4 btn-set  text-right">
+                          
+                            <img  class="loader_img"  src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" S data-ng-disabled="loginForm.$invalid">
+                               
+                                Submit
+                            </button>
+                           </div>
+                    </div>
+                    
+                    
+                                                         
+                    </div>
+                    
+                    
+                        <div class="space-4"></div>
+                <span class="lbl col-sm-3"> </span>
+                
+                </div><div class="col-md-1"></div></div>
+                </form>

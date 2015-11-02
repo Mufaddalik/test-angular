@@ -1,0 +1,53 @@
+ <form class="formLog" name="form" class="form-horizontal" ng-submit="doAddGroup(addmember)" role="form">
+ <div class="row "><div class="col-sm-12"> <h2 class="main-title">Add New member</h2></div></div>
+               
+                 <div class="row"> <div class="col-md-1"></div>
+  <div class="col-md-10">
+      
+       <div class="row space">
+                        <div class="col-sm-4"> <label  for="name">Member Name:</label></div>
+                        <div class="col-sm-8">
+                           <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="member Name" name="label" ng-model="addmember.name" required focus/>
+                               
+                            </span>
+                        </div>
+                    </div>
+      <div class="row space">
+                        <div class="col-sm-4"> <label  for="email">Email Id:</label></div>
+                        <div class="col-sm-8">
+                           <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="Email Id" name="label" ng-model="addmember.email" required focus/>
+                               
+                            </span>
+                        </div>
+                    </div>
+      
+      
+      
+     <div class="space"></div>
+     
+                     <div class="clearfix">
+                     
+                         <div class="row space">
+                         <div class="col-sm-8 "></div>
+                        <div class="col-sm-4 btn-set  text-right">
+                          
+                            <img  class="loader_img"  src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" S data-ng-disabled="loginForm.$invalid">
+                               
+                                Add
+                            </button>
+                           </div>
+                    </div>
+                    
+                    
+                                                         
+                    </div>
+                    
+                    
+                        <div class="space-4"></div>
+                <span class="lbl col-sm-3"> </span>
+                
+                </div><div class="col-md-1"></div></div>
+                </form>

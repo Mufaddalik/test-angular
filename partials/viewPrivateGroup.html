@@ -1,0 +1,68 @@
+<form class="formLog" name="form" class="form-horizontal" novalidate ng-controller="GroupCtrl">
+<div class="row ">
+    <div class="col-sm-12">
+        <h2 class="main-title">
+            View </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="row space">
+            <div class="col-sm-4">
+                <label for="group_img">Enter Passkey</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <label>Enter Group Passkey</label>
+                    </span>
+                </div>
+        </div>
+            
+        <div class="row space">
+                <div class="col-sm-4">
+                    <label for="Passkey">
+                        Pass Key:</label></div>
+                <div class="col-sm-8">
+                    <span class="block input-icon input-icon-right">
+                        <input type="text" ng-model="privategroup.key" name="privategroup.key" class="form-control" 
+                        placeholder="Passkey Or Password"
+                          name="key" required="true" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+            
+        
+        
+        <div class="space">
+        </div>
+        <div class="clearfix">
+            <div class="row space">
+                <div class="col-sm-6 ">
+                <input type="hidden"  name="privategroup.user_id" ng-model="privategroup.user_id" 
+                        ng-init="privategroup.user_id = ngDialogData.user_id" />
+                </div>
+                <input type="hidden"  name="privategroup.group_id" ng-model="privategroup.group_id" 
+                        ng-init="privategroup.group_id = ngDialogData.group_id" />
+                </div>
+                <div class="col-sm-4 btn-set  text-right">
+                    <img class="loader_img" src="img/loading_bar (1).gif" id="loader" style="display: none;">
+                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="showPrivateGroup(privategroup)">
+                        Show
+                    </button>
+                    <button type="button" class="width-35 pull-right btn btn-sm btn-primary" ng-click="closeThisDialog()">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+
+</div>
+</form>

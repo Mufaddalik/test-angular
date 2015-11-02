@@ -1,0 +1,133 @@
+<div ng-controller="rightPanelCtrl">
+    <script type="text/ng-template" id="savedGroupDialogID">
+            <form class="formLog" name="form" class="form-horizontal" ng-submit="doSaveNewGroup(group)" role="form">
+			  <div class="row "><div class="col-sm-12"> <h2 class="main-title">Save Group</h2></div></div>
+               
+			     <div class="row"> <div class="col-md-1"></div>
+  <div class="col-md-10">
+  
+   <div class="row space" ng-show="ngDialogData.q" >
+                    <div class="col-sm-4"><label>Group Name :</label></div> 
+					   <div class="col-sm-8"><span>{{ngDialogData.q}}</span> </div>z
+					   </div>
+
+                    <div class="row space">
+				 <div class="col-sm-4"><label for="Save Group As :">Save Group As : </label></div>
+
+                    <div class="col-sm-8"> <input type="text" name="saveGroup" id="saveGroup" class="form-control" ng-model="group.name" required /></div>
+						
+                    <span ng-show="form.emailid.$dirty && form.emailid.$error.required" class="help-block">Group Name is required</span>
+					</div>
+					
+					
+				
+              
+                <div class="row space">
+                   <div class="col-sm-4">  <label for="Save Group As :">Select Group Label</label></div>
+
+                   <div class="col-sm-8"> <table> <tr>
+                            <td ng-repeat="role in groupIcons">
+                                <span>
+                                   <input ng-model="group.iconid" type="radio" value="{{role.id}}" ng-checked="selection.indexOf(role.id) > -1" name="radio" ng-click="toggleSelection(role.id)" />
+                                </span> 
+                               <span class="right-space"><img src="{{role.icons}}"></span>
+                            </td></tr>
+                    </table> </div></div>
+					
+					 <div class="row space">
+                         <div class="col-sm-8 "></div>
+                        <div class="col-sm-4 btn-set  text-right">
+                        <img  class="loader_img"  src="img/loading_bar (1).gif" id="loader" style="display: none;">
+<button type="submit" class="width-35 pull-right btn btn-sm btn-primary"  data-ng-disabled="loginForm.$invalid">Add</button>
+                           </div>
+                    </div>
+					
+					
+ </div>
+<div class="col-md-1"></div>
+</div>
+            </form>
+            </script>
+    <!--            <script type="text/ng-template" id="customTemplate.html">
+                <a>
+                    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+
+                </a>
+                </script>-->
+    <div ng-show="rightPanel">
+        <!-- Sidebar content-->
+        <!--                    <form class="form-search">
+                        Search: <input ng-model="query" placeholder="Save and Search  " typeahead="c as c.content  for c in contentData  | filter:$viewValue | limitTo:20" typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control" >
+                        <br/>                                                                   
+                        Sort by:
+                        <select ng-model="orderProp">
+                            <option value="name">Alphabetical</option>
+                            <option value="age">Newest</option>
+                        </select>
+                    </form>-->
+        <div style="clear: both">
+        </div>
+        <br />
+        <div>
+            <a class="save_search" ng-click="save_group()">Save search</a>
+            <div style="clear: both">
+            </div>
+            <br />
+            <br />
+            <div class="saved_group_part">
+                <h2 class="timeless saved_group">
+                    Saved Searches</h2>
+                <a class="save_search" ng-click="" href="">Edit Search</a>
+                <div style="clear: both">
+                </div>
+                <label ng-repeat="role in savedgroup" class="display_info">
+                    <input type="checkbox" class="saved_checkbox" checklist-model="user.savedgroup" ng-click="includeColour(role)"
+                        checklist-value="role">
+                    <p class="proxima groupname">
+                        {{role.text}}</p>
+                    <img src="{{role.icon_url}}">
+                    <div style="clear: both">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="display_info_part">
+            <h2 class="timeless display_info">
+                Display Info</h2>
+            <a class="save_search" ng-click="">Edit Info Lines</a>
+            <div style="clear: both">
+            </div>
+            <div ng-repeat="role in displayinfo" class="saved_group">
+                <ul>
+                    <li>
+                        <p class="proxima">
+                            {{role.text}}</p>
+                    </li>
+                    <li>
+                        <input type="checkbox" checklist-model="user.displayinfo" checklist-value="role"></li>
+                    <li>
+                        <p class="datatype proxima">
+                            {{role.datatype}}</p>
+                    </li>
+                </ul>
+                <div style="clear: both">
+                </div>
+            </div>
+        </div>
+        <div class="display_info_part"><!-- added by mufaddal for showing group user is assiciated with -->
+            <h2 class="timeless display_info">My Groups</h2>
+            <a class="save_search" ng-click="">Edit Info Lines</a>
+            <div style="clear: both">
+            </div>
+            <div ng-repeat="group in groups" class="saved_group">
+                        <p class="proxima">
+                            <a href="#/group/{{group.group_id}}">{{group.group_name}}</a>
+                        </p>
+                <div style="clear: both">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
